@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -101,7 +102,7 @@ public class Game {
                 hands.get(player).remove(card);
             }
         } else if (hasValidMove(player)) {
-                throw new SomeoneNoobException(player.getName(), "They skipped when they could play a card.");
+                throw new SomeoneNoobException(player.getName(), "They skipped when they could have played " + getPlayableCard(player));
         }
         
         // This should be out here so we also notify of skips as well as valid plays
@@ -111,6 +112,14 @@ public class Game {
         nextPlayerIndex = (nextPlayerIndex + 1) % playerCount;
         return player;
     }
+    
+    public Card getPlayableCard(Player player) {
+        for (Card card : hands.get(player)) {
+            if (gameState.canPlay(card))
+                return card;
+        }
+        return null;
+     }
 
     /**
      * Play a game of sevens

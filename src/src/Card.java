@@ -1,3 +1,4 @@
+package src;
 public class Card {
     private final Suit suit;
     private final int cardIndex;

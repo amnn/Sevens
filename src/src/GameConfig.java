@@ -1,3 +1,4 @@
+package src;
 
 public class GameConfig {
     private int playerCount;

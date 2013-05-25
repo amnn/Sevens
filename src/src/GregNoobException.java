@@ -1,3 +1,4 @@
+package src;
 
 @SuppressWarnings("serial")
 public class GregNoobException extends SomeoneNoobException {
